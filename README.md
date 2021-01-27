@@ -1,7 +1,7 @@
 # bookstore
 go-zero guide
-
-##目录结构
+```
+##目录结构##
 .
 └── cmd
     ├── bookstoreapi
@@ -26,4 +26,5 @@ go-zero guide
         └── member
             ├── snap
             └── wal
+```
             
