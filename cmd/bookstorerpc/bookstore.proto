@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package bookstore;
+
+message Request {
+  string user = 1;
+}
+
+message Response {
+  string msg = 1;
+}
+
+message CheckReq{
+    string token = 1;
+}
+
+message CheckResp{
+    bool ok = 1;
+}
+
+message AddReq{
+    string user = 1;
+    string phone = 2;
+}
+
+message AddResp{
+  string errMsg = 1;
+  string errCode = 2;
+}
+
+service Bookstore {
+  rpc Hello(Request) returns(Response);
+  rpc Check(CheckReq) returns(CheckResp);
+  rpc Add(AddReq) returns(AddResp);
+}

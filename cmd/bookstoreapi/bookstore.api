@@ -1,0 +1,37 @@
+type (
+	helloReq {
+		User string `form:"user"`
+	}
+
+	helloResp {
+		Msg string `json:"msg"`
+	}
+
+	checkReq {
+		Token string `form:"token"`
+	}
+	checkResp {
+		Ok bool `json:"ok"`
+	}
+
+	addReq {
+		User  string `form:"user"`
+		Phone string `from:"phone"`
+	}
+
+	addResp {
+		ErrMsg    string `json:"status"`
+		ErrorCode int64  `json:"error_code"`
+	}
+)
+
+service bookstore-api {
+	@handler HelloHandler
+	post /hello(helloReq) returns(helloResp)
+	
+	@handler CheckHandler
+	post /check(checkReq) returns(checkResp)
+	
+	@handler AddHandler
+	post /add(addReq) returns(addResp)
+}
